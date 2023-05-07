@@ -5,9 +5,9 @@ import QuestionsAnswersTemplate from './QuestionsAnswersTemplate';
 const TriviaRequestHistory = () => {
     const [question, setQuestion] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [showScore, setShowScore] = useState(false)
-
-    const [score, setScore] = useState(0);
+    const [allQ, settAllQ] = useState()
+    
+  
 
 
 
@@ -18,6 +18,8 @@ const TriviaRequestHistory = () => {
           .then(res => res.data)
           .then(data => {
             console.log(data.results)
+            settAllQ(data.results)
+            
             {/*we need to modify object from db to be able to manipulate its constituents*/}
             const question = data.results.map((q) => ({
                 ...q,
@@ -25,29 +27,31 @@ const TriviaRequestHistory = () => {
             }))
 
             setQuestion(question)
-
+            settAllQ(data.results)
+          
             })
+            
       },[]);
 
-      const handleAnswerOptionClick = (correct_answer, answers, answer) => {
-        question.map((q) => {
-          answers.map((answer => {
-            console.log(answer)
-          console.log(q.correct_answer)
-          if (answer === q.correct_answer) {
-            setScore(score + 1);
-          }
-        }))
-        })
+      // const handleAnswerOptionClick = (correct_answer, answers, answer) => {
+      //   question.map((q) => {
+      //     answers.map((answer => {
+      //       console.log(answer)
+      //     console.log(q.correct_answer)
+      //     if (answer === q.correct_answer) {
+      //       setScore(score + 1);
+      //     }
+      //   }))
+      //   })
           
       
-          const nextQuestion = question + 1;
-          if (nextQuestion < question.length) {
-            setQuestion(nextQuestion);
-          } else {
-            setShowScore(true);
-          }
-        };
+      //     const nextQuestion = question + 1;
+      //     if (nextQuestion < question.length) {
+      //       setQuestion(nextQuestion);
+      //     } else {
+      //       setShowScore(true);
+      //     }
+      //   };
         
 
 
@@ -56,7 +60,7 @@ const TriviaRequestHistory = () => {
     question.length > 0 ?
 
     <div className='container' >
-        <QuestionsAnswersTemplate data={question[currentIndex]} handleAnswerOptionClick={handleAnswerOptionClick} score={score}/>
+        <QuestionsAnswersTemplate data={question[currentIndex]} />
      </div> : "Just a little bit of patience, please"
 
   )

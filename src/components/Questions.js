@@ -5,21 +5,11 @@ import QuestionsAnswersTemplate from './QuestionsAnswersTemplate';
 const TriviaRequestHistory = () => {
     const [question, setQuestion] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [showScore, setShowScore] = useState(false)
+
+    const [score, setScore] = useState(0);
 
 
-   
-
-    // const fetchTrivia = async () => {
-    //     let response = await fetch (
-    //         "https://opentdb.com/api.php?amount=10&category=23&type=multiple"
-    //     );
-    //     const data = await response.json();
-    //     setQuestion(data);   
-    // };
-
-    // useEffect(() => {
-    //     fetchTrivia();
-    // }, []);
 
     const url = "https://opentdb.com/api.php?amount=10&category=23&type=multiple";
 
@@ -35,14 +25,38 @@ const TriviaRequestHistory = () => {
             }))
 
             setQuestion(question)
+
             })
-      },[])
+      },[]);
+
+      const handleAnswerOptionClick = (correct_answer, answers, answer) => {
+        question.map((q) => {
+          answers.map((answer => {
+            console.log(answer)
+          console.log(q.correct_answer)
+          if (answer === q.correct_answer) {
+            setScore(score + 1);
+          }
+        }))
+        })
+          
+      
+          const nextQuestion = question + 1;
+          if (nextQuestion < question.length) {
+            setQuestion(nextQuestion);
+          } else {
+            setShowScore(true);
+          }
+        };
+        
+
 
 {/*created conditions just to avoid error "question undefined" bc data can still be in the process of fetching*/}
   return(
     question.length > 0 ?
-    <div className='container'>
-        <QuestionsAnswersTemplate data={question[currentIndex]}/>
+
+    <div className='container' >
+        <QuestionsAnswersTemplate data={question[currentIndex]} handleAnswerOptionClick={handleAnswerOptionClick} score={score}/>
      </div> : "Just a little bit of patience, please"
 
   )

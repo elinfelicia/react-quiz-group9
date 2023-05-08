@@ -7,7 +7,10 @@ const TriviaRequestHistory = () => {
     const [question, setQuestion] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     
-
+    const [showAnswers, setShowAnswers] = useState(false);
+    const [score, setScore] = useState (0)
+   
+    const [disabled, setDisabled] = useState(false);
   
     useEffect(() => { 
       if (currentIndex < question.length){ 
@@ -55,11 +58,7 @@ const TriviaRequestHistory = () => {
         console.log(currentIndex)
         console.log(nextQuestion)
         setQuestion(nextQuestion)
-        
  
-        // console.log(question)
-        // setCurrentIndex(currentIndex + 1);
-        // console.log(question[currentIndex])
         
       }
       
@@ -69,38 +68,38 @@ const TriviaRequestHistory = () => {
       // setCurrentIndex(currentIndex + 1);
 
     }
-      
-
-      // const handleAnswerOptionClick = (correct_answer, answers, answer) => {
-      //   question.map((q) => {
-      //     answers.map((answer => {
-      //       console.log(answer)
-      //     console.log(q.correct_answer)
-      //     if (answer === q.correct_answer) {
-      //       setScore(score + 1);
-      //     }
-      //   }))
-      //   })
-          
-      
-      //     const nextQuestion = question + 1;
-      //     if (nextQuestion < question.length) {
-      //       setQuestion(nextQuestion);
-      //     } else {
-      //       setShowScore(true);
-      //     }
-      //   };
         
 
+    // const handleAnswer = (answer) => {
+    //   if(!showAnswers){
+    //     if(answer === question[currentIndex].correct_answer){
+    //       setScore(score+1);
+    //       setDisabled(false)
+    //     }
+    //   }
+      
+  
+    //   setShowAnswers(true);
+      
+    // }
+  
+    const handleNextQuestion = () => {
+
+      setCurrentIndex(currentIndex+1);
+      setShowAnswers(false);
+    }
 
 {/*created conditions just to avoid error "question undefined" bc data can still be in the process of fetching*/}
   return(
    
-    question.length > 0  && question.length <= 10 ?
+    question.length > 0 ? (
 
     <div className='container' >
-        <QuestionsAnswersTemplate data={question[currentIndex]} allQuestions={allQuestions} />
-     </div> : "Just a little bit of patience, please"
+      {currentIndex >= question.length ? (<h1>Game Ended</h1>) : (
+        <QuestionsAnswersTemplate data={question[currentIndex]} allQuestions={allQuestions} 
+        showAnswers={showAnswers}
+        handleNextQuestion={handleNextQuestion}/>)}
+     </div>) : <div> Some patience please </div>
 
  
   )

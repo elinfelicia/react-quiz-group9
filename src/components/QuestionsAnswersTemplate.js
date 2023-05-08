@@ -5,17 +5,17 @@
 // check that score works correctly
 
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 //not PascalCasing in props, bc props are copied from trivia api database
 
 const QuestionsAnswersTemplate = ({
-    data: {question, answers, correct_answer}, allQuestions, currentIndex
+    data: {question, answers, correct_answer}, allQuestions, currentIndex, handleNextQuestion
 }) => {
 
 
-  
-    const [showAnswers, setShowAnswers] = useState(false);
+    
+  const [showAnswers, setShowAnswers] = useState(false);
     const [score, setScore] = useState (0)
    
 
@@ -55,18 +55,18 @@ const QuestionsAnswersTemplate = ({
           <h2
             className="text-center"
             dangerouslySetInnerHTML={{ __html: question }}
-            key={question.id}
+            key={question[currentIndex]}
           />
         </div>
         <div className="d-flex flex-column">
           {answers.map((answer, index) => {
-              const changeBtnStyle = showAnswers ? (
-                 answer === correct_answer ? "btn btn-success": "btn btn-danger"
-             ) : ""; 
+               const changeBtnStyle = showAnswers ? (
+                  answer === correct_answer ? "btn btn-success": "btn btn-danger" 
+              ) : ""; 
             return (
               <button
-                onClick={() => clickHandle(answer)} disabled={disabled}
-                className={`btn btn-primary mt-2 ${changeBtnStyle}`}
+                onClick={() => clickHandle(answer)} 
+                className={`btn btn-primary mt-2 ${changeBtnStyle}`} disabled={disabled} 
                 key={index}
                 dangerouslySetInnerHTML={{ __html: answer }}
               />
@@ -76,9 +76,9 @@ const QuestionsAnswersTemplate = ({
         </div> 
       </div>
       <div className="d-flex mt-3 justify-content-center">
-      
-      <button className="btn btn-light" onClick={()=>  allQuestions()}>Next Question</button> 
-      </div> 
+      {showAnswers && (
+      <button className="btn btn-light" onClick={()=>  handleNextQuestion()}>Next Question</button> )}
+      </div>  
       </>
   );
 };

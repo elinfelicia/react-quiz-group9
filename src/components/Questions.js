@@ -22,6 +22,8 @@ const TriviaRequestHistory = () => {
 
 
 
+
+
     const url = "https://opentdb.com/api.php?amount=10&category=23&type=multiple";
 
     useEffect(() =>{
@@ -45,29 +47,29 @@ const TriviaRequestHistory = () => {
       },[]);
 
 
-    const allQuestions = () => {
-      // for (let i=0; i < question.length; i++) {
-      //   console.log(question[i])
-      // }
+    // const allQuestions = () => {
+    //   // for (let i=0; i < question.length; i++) {
+    //   //   console.log(question[i])
+    //   // }
 
-      const nextQuestion = question[currentIndex + 1];
+    //   const nextQuestion = question[currentIndex + 1];
       
       
-      if (currentIndex < question.length) {
-        setCurrentIndex(currentIndex)
-        console.log(currentIndex)
-        console.log(nextQuestion)
-        setQuestion(nextQuestion)
+    //   if (currentIndex < question.length) {
+    //     setCurrentIndex(currentIndex)
+    //     console.log(currentIndex)
+    //     console.log(nextQuestion)
+    //     setQuestion(nextQuestion)
  
         
-      }
+    //   }
       
-      else {
-        console.log("meow")
-      }
+    //   else {
+    //     console.log("meow")
+    //   }
       // setCurrentIndex(currentIndex + 1);
 
-    }
+    // }
         
 
     // const handleAnswer = (answer) => {
@@ -87,6 +89,7 @@ const TriviaRequestHistory = () => {
 
       setCurrentIndex(currentIndex+1);
       setShowAnswers(false);
+      
     }
 
 {/*created conditions just to avoid error "question undefined" bc data can still be in the process of fetching*/}
@@ -96,10 +99,11 @@ const TriviaRequestHistory = () => {
 
     <div className='container' >
       {currentIndex >= question.length ? (<h1>Game Ended</h1>) : (
-        <QuestionsAnswersTemplate data={question[currentIndex]} allQuestions={allQuestions} 
+        <QuestionsAnswersTemplate data={question[currentIndex]}  
         showAnswers={showAnswers}
         handleNextQuestion={handleNextQuestion}/>)}
      </div>) : <div> Some patience please </div>
+     
 
  
   )

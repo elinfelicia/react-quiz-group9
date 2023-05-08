@@ -5,21 +5,31 @@
 // check that score works correctly
 
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 //not PascalCasing in props, bc props are copied from trivia api database
 
 const QuestionsAnswersTemplate = ({
-    data: {question, answers, correct_answer}, allQuestions, currentIndex, handleNextQuestion
+    data: {question, answers, correct_answer}, currentIndex, handleNextQuestion
 }) => {
 
 
-    
+
+
   const [showAnswers, setShowAnswers] = useState(false);
     const [score, setScore] = useState (0)
    
 
     const [disabled, setDisabled] = useState(false);
+    const ref = useRef(null);
+    const[style, setStyle] = useState("blue")
+
+    useEffect(() => {
+      if(disabled) {
+        setDisabled(!disabled)
+        setStyle("pink")
+      }
+    }, [question])
 
       const clickHandle = (answer) => {
         setDisabled(true);
@@ -30,14 +40,17 @@ const QuestionsAnswersTemplate = ({
            console.log("yay");
           setScore(score + 1);
           setShowAnswers(true); 
+          
          
          } else {
           console.log("nay");
          setShowAnswers(true);
+         
         }
 
        
      };
+
 
 
 
@@ -60,15 +73,21 @@ const QuestionsAnswersTemplate = ({
         </div>
         <div className="d-flex flex-column">
           {answers.map((answer, index) => {
-               const changeBtnStyle = showAnswers ? (
-                  answer === correct_answer ? "btn btn-success": "btn btn-danger" 
-              ) : ""; 
+              const changeBtnStyle = showAnswers ? (
+                   answer === correct_answer ? "btn btn-success": "btn btn-danger" 
+               ) :  "";
+               const newStyle = changeBtnStyle ? "btn btn-primary" :""
+               
+              
             return (
               <button
                 onClick={() => clickHandle(answer)} 
-                className={`btn btn-primary mt-2 ${changeBtnStyle}`} disabled={disabled} 
+                className={`btn btn-primary mt-2 ${changeBtnStyle}`}  disabled={disabled} 
+                ref={ref}
                 key={index}
                 dangerouslySetInnerHTML={{ __html: answer }}
+                
+                // {disabled ? "btn btn-primary" : changeBtnStyle}
               />
   
             );
@@ -76,9 +95,12 @@ const QuestionsAnswersTemplate = ({
         </div> 
       </div>
       <div className="d-flex mt-3 justify-content-center">
+        
       {showAnswers && (
-      <button className="btn btn-light" onClick={()=>  handleNextQuestion()}>Next Question</button> )}
+      <button className={`btn btn-light`} onClick={()=>  handleNextQuestion()}  disabled={!disabled}>Next Question</button> )}
+      
       </div>  
+      
       </>
   );
 };

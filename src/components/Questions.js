@@ -10,10 +10,13 @@ const TriviaRequestHistory = () => {
 
   
     useEffect(() => { 
-      const newIndex = currentIndex + 1;
-      console.log(newIndex)
-      setCurrentIndex(newIndex)
-    }, [])
+      if (currentIndex < question.length){ 
+        const newIndex = currentIndex + 1;
+        console.log(newIndex)
+        setCurrentIndex(newIndex)}
+    }, [question])
+
+
 
 
     const url = "https://opentdb.com/api.php?amount=10&category=23&type=multiple";
@@ -51,12 +54,9 @@ const TriviaRequestHistory = () => {
         setCurrentIndex(currentIndex)
         console.log(currentIndex)
         console.log(nextQuestion)
-        
-        
-        
         setQuestion(nextQuestion)
-    
         
+ 
         // console.log(question)
         // setCurrentIndex(currentIndex + 1);
         // console.log(question[currentIndex])
@@ -67,7 +67,7 @@ const TriviaRequestHistory = () => {
         console.log("meow")
       }
       // setCurrentIndex(currentIndex + 1);
-      
+
     }
       
 
@@ -95,12 +95,14 @@ const TriviaRequestHistory = () => {
 
 {/*created conditions just to avoid error "question undefined" bc data can still be in the process of fetching*/}
   return(
-    question.length > 0 ?
+   
+    question.length > 0  && question.length <= 10 ?
 
     <div className='container' >
         <QuestionsAnswersTemplate data={question[currentIndex]} allQuestions={allQuestions} />
      </div> : "Just a little bit of patience, please"
 
+ 
   )
 
 }

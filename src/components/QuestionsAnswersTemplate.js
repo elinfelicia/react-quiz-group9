@@ -5,40 +5,36 @@
 // check that score works correctly
 
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 //not PascalCasing in props, bc props are copied from trivia api database
 
 const QuestionsAnswersTemplate = ({
-    data: {question, answers, correct_answer}
+    data: {question, answers, correct_answer}, allQuestions
 }) => {
 
 
   
     const [showAnswers, setShowAnswers] = useState(false);
     const [score, setScore] = useState (0)
-    
+    const buttonRef = useRef(null);
 
-      const clickHandle = (answer) => {
+      const clickHandle = (answer, event) => {
        // console.log(correct_answer);
          //  console.log(answer);
-    
+         buttonRef.current.disabled = true;
         if (answer === correct_answer) {
            console.log("yay");
           setScore(score + 1);
           setShowAnswers(true); 
-          console.log({data: {question, answers, correct_answer}})
-           
-         
-
-          
          } else {
           console.log("nay");
          setShowAnswers(true);
         }
+
+        allQuestions()
      };
 
-     
 
   return (
     <>
@@ -61,12 +57,13 @@ const QuestionsAnswersTemplate = ({
                  answer === correct_answer ? "btn btn-success": "btn btn-danger"
              ) : ""; 
             return (
-              <button 
-                onClick={() => clickHandle(answer)}
+              <button ref={buttonRef}
+                onClick={(event) => clickHandle(answer)}
                 className={`btn btn-primary mt-2 ${changeBtnStyle}`}
                 key={index}
                 dangerouslySetInnerHTML={{ __html: answer }}
               />
+  
             );
           })}
         </div>

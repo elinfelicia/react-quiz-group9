@@ -22,15 +22,15 @@ const TriviaRequestHistory = () => {
 
 
 
+    // need to fetch 12 questions indstead of 10 bc i lost two indexes somewhere in the code 
 
-
-    const url = "https://opentdb.com/api.php?amount=10&category=23&type=multiple";
+    const url = "https://opentdb.com/api.php?amount=12&category=23&type=multiple"; 
 
     useEffect(() =>{
         Axios.get(url)
           .then(res => res.data)
           .then(data => {
-            // console.log(data.results)
+            console.log(data.results)
             // settAllQ(data.results)
             
             {/*we need to modify object from db to be able to manipulate its constituents*/}

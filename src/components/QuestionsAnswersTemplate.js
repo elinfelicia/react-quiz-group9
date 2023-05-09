@@ -22,34 +22,43 @@ const QuestionsAnswersTemplate = ({
 
     const [disabled, setDisabled] = useState(false);
     const ref = useRef(null);
-    const[style, setStyle] = useState("blue")
+    
+   
+    const[toggle,setToggle] = useState(true)
+    
 
     useEffect(() => {
       if(disabled) {
         setDisabled(!disabled)
-        setStyle("pink")
+        setToggle(false)
       }
+
     }, [question])
 
-      const clickHandle = (answer) => {
-        setDisabled(true);
-       // console.log(correct_answer);
-         //  console.log(answer);
-        //  buttonRef.current.disabled = true;
-        if (answer === correct_answer) {
-           console.log("yay");
-          setScore(score + 1);
-          setShowAnswers(true); 
+
+
+
+
+       const clickHandle = (answer) => {
+         setDisabled(true);
+         setToggle(true)
+        // console.log(correct_answer);
+          //  console.log(answer);
+         //  buttonRef.current.disabled = true;
+         if (answer === correct_answer) {
+            console.log("yay");
+           setScore(score + 1);
+           setShowAnswers(true); 
           
          
-         } else {
-          console.log("nay");
-         setShowAnswers(true);
+          } else {
+           console.log("nay");
+          setShowAnswers(true);
          
-        }
+         }
 
        
-     };
+      };
 
 
 
@@ -73,23 +82,22 @@ const QuestionsAnswersTemplate = ({
         </div>
         <div className="d-flex flex-column">
           {answers.map((answer, index) => {
-              const changeBtnStyle = showAnswers ? (
+              const changeBtnStyle = showAnswers && toggle ? (
                    answer === correct_answer ? "btn btn-success": "btn btn-danger" 
                ) :  "";
-               const newStyle = changeBtnStyle ? "btn btn-primary" :""
-               
+              
               
             return (
-              <button
+              <button 
                 onClick={() => clickHandle(answer)} 
-                className={`btn btn-primary mt-2 ${changeBtnStyle}`}  disabled={disabled} 
-                ref={ref}
+                className={`btn btn-primary mt-2 ${changeBtnStyle}`} disabled={disabled} 
+                ref={ref} 
                 key={index}
                 dangerouslySetInnerHTML={{ __html: answer }}
                 
                 // {disabled ? "btn btn-primary" : changeBtnStyle}
               />
-  
+              
             );
           })}
         </div> 

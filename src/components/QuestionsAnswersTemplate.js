@@ -6,6 +6,10 @@
 
 
 import React, { useEffect, useState, useRef } from "react";
+import GameEnd from "./GameEnd";
+
+
+
 
 //not PascalCasing in props, bc props are copied from trivia api database
 
@@ -18,6 +22,7 @@ const QuestionsAnswersTemplate = ({
 
   const [showAnswers, setShowAnswers] = useState(false);
     const [score, setScore] = useState (0)
+
    
 
     const [disabled, setDisabled] = useState(false);
@@ -25,18 +30,17 @@ const QuestionsAnswersTemplate = ({
     
    
     const[toggle,setToggle] = useState(true)
+   
     
 
     useEffect(() => {
       if(disabled) {
         setDisabled(!disabled)
         setToggle(false)
+        
       }
 
     }, [question])
-
-
-
 
 
        const clickHandle = (answer) => {
@@ -45,31 +49,41 @@ const QuestionsAnswersTemplate = ({
         // console.log(correct_answer);
           //  console.log(answer);
          //  buttonRef.current.disabled = true;
-         if (answer === correct_answer) {
-            console.log("yay");
-           setScore(score + 1);
+        if (answer === correct_answer) {
+      //       console.log("yay");
+            setScore(score + 1);
            setShowAnswers(true); 
+           
           
          
-          } else {
-           console.log("nay");
-          setShowAnswers(true);
+       } else {
+      //      console.log("nay");
+        setShowAnswers(true);
          
          }
-
-       
+        
+      //  console.log(score)
       };
 
 
+      
+      
+  
 
+  
 
   return (
-    <>
+    <div className="h-100 w-75 align-items-center justify-content-center">
+    
       <div className="d-flex flex-column align-items-center container mt-5">
+       
         <h1>SCORE</h1>
-        <div className=" btn btn-info">{score}</div> 
-      </div>
       
+        <div className="btn btn-lg btn-info ">{score}</div>  
+       
+       
+      </div> 
+    
       <div className="container mt-5">
         <div>
           {/*dangerouslySetInnerHTML was added for correct rendering of text*/}
@@ -105,12 +119,13 @@ const QuestionsAnswersTemplate = ({
       <div className="d-flex mt-3 justify-content-center">
         
       {showAnswers && (
-      <button className={`btn btn-light`} onClick={()=>  handleNextQuestion()}  disabled={!disabled}>Next Question</button> )}
+      <button className={`btn  btn-lg btn-light`} onClick={()=> handleNextQuestion()}  disabled={!disabled}>Next Question</button> )}
       
       </div>  
-      
-      </>
+       
+      </div>
   );
 };
 
 export default QuestionsAnswersTemplate;
+

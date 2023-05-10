@@ -14,56 +14,57 @@ import GameEnd from "./GameEnd";
 //not PascalCasing in props, bc props are copied from trivia api database
 
 const QuestionsAnswersTemplate = ({
-    data: {question, answers, correct_answer}, currentIndex, handleNextQuestion
+    data: {question, answers, correct_answer}, currentIndex, handleNextQuestion, clickHandle, score, showAnswers, toggle, disabled
 }) => {
 
+  
 
 
 
-  const [showAnswers, setShowAnswers] = useState(false);
-    const [score, setScore] = useState (0)
+  // const [showAnswers, setShowAnswers] = useState(false);
+  //   const [score, setScore] = useState (0)
 
    
 
-    const [disabled, setDisabled] = useState(false);
+  //   const [disabled, setDisabled] = useState(false);
     const ref = useRef(null);
     
    
-    const[toggle,setToggle] = useState(true)
+    // const[toggle,setToggle] = useState(true)
    
     
 
-    useEffect(() => {
-      if(disabled) {
-        setDisabled(!disabled)
-        setToggle(false)
+    // useEffect(() => {
+    //   if(disabled) {
+    //     setDisabled(!disabled)
+    //     setToggle(false)
         
-      }
+    //   }
 
-    }, [question])
+    // }, [question])
 
 
-       const clickHandle = (answer) => {
-         setDisabled(true);
-         setToggle(true)
-        // console.log(correct_answer);
-          //  console.log(answer);
-         //  buttonRef.current.disabled = true;
-        if (answer === correct_answer) {
-      //       console.log("yay");
-            setScore(score + 1);
-           setShowAnswers(true); 
+    //    const clickHandle = (answer) => {
+    //      setDisabled(true);
+    //      setToggle(true)
+    //     // console.log(correct_answer);
+    //       //  console.log(answer);
+    //      //  buttonRef.current.disabled = true;
+    //     if (answer === correct_answer) {
+    //   //       console.log("yay");
+    //         setScore(score + 1);
+    //        setShowAnswers(true); 
            
           
          
-       } else {
-      //      console.log("nay");
-        setShowAnswers(true);
+    //    } else {
+    //   //      console.log("nay");
+    //     setShowAnswers(true);
          
-         }
+    //      }
         
-      //  console.log(score)
-      };
+    //   //  console.log(score)
+    //   };
 
 
       
@@ -80,6 +81,7 @@ const QuestionsAnswersTemplate = ({
         <h1>SCORE</h1>
       
         <div className="btn btn-lg btn-info ">{score}</div>  
+        
        
        
       </div> 
@@ -103,7 +105,7 @@ const QuestionsAnswersTemplate = ({
               
             return (
               <button 
-                onClick={() => clickHandle(answer)} 
+                onClick={() => clickHandle(answer, correct_answer)} 
                 className={`btn btn-primary mt-2 ${changeBtnStyle}`} disabled={disabled} 
                 ref={ref} 
                 key={index}

@@ -9,7 +9,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/user" element={
           <PrivateRoute>
-            {/* Insert Start page of game here */}
+            {/* Insert Start page of game/categories page here */}
           </PrivateRoute>
         } />
       </Routes>

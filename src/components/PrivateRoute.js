@@ -1,4 +1,4 @@
-import { authenticate } from "../helper";
+import { authenticate } from "../helpers";
 import {Navigate} from "react-router-dom";
 
 const PrivateRoute = ({children}) => {

@@ -2,19 +2,20 @@ import axios from "axios";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        {/*add in header here as header should always be visible in all routes!
-        but unsure how this works if we want different buttons? */}
-      </div>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />}/> 
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/user" element={
+          <PrivateRoute>
+            {/* Insert Start page of game/categories page here */}
+          </PrivateRoute>
+        } />
+      </Routes>
     </BrowserRouter>
   );
 }

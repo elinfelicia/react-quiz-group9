@@ -4,10 +4,12 @@ import Axios from "axios";
 // import QuestionsAnswersTemplate from './QuestionsAnswersTemplate';
 
 import QuestionsAnswersTemplate from "./QuestionsAnswersTemplate";
-import clickHandle from "./QuestionsAnswersTemplate";
-import { click } from "@testing-library/user-event/dist/click";
 
-const TriviaRequestHistory = () => {
+
+
+
+const TriviaRequest = () => {
+  
   const [question, setQuestion] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -102,9 +104,21 @@ const TriviaRequestHistory = () => {
   return question.length > 0 ? (
     <div className="container h-100 d-flex  align-items-center justify-content-center">
       {currentIndex >= question.length ? (
-        <h1>
-          END OF THE GAME. Your score is {score}
+        <div className="d-flex flex-column align-items-center justify-content-center">
+       <div  className="container mt-5 py-3 px-5 border border-dark rounded d-flex flex-column align-items-center justify-content-center">
+         <h1>
+          END OF THE GAME 
         </h1>
+        <h1>
+        THANK YOU FOR PLAYING
+        </h1>
+        <h5 className="mt-2">Your score is {parseInt(score)} points</h5> 
+        <h5 className="mt-2 display-2">{(score >= 6) ? <p className="text-success">You won!</p> : <p  className="text-danger">You lost!</p>}</h5> 
+        
+        </div>
+        <button className="mt-4 btn btn-lg btn-outline-warning" to="/">
+        MAIN MENU
+      </button> </div>
       ) : (
         <QuestionsAnswersTemplate
           data={question[currentIndex]}
@@ -123,4 +137,4 @@ const TriviaRequestHistory = () => {
   );
 };
 
-export default TriviaRequestHistory;
+export default TriviaRequest;

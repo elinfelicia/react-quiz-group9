@@ -106,7 +106,7 @@ const TriviaRequest = ({url}) => {
     <div className="container h-100 d-flex  align-items-center justify-content-center">
       {currentIndex >= question.length ? (
         <div className="d-flex flex-column align-items-center justify-content-center">
-       <div  className="container mt-5 py-3 px-5 border border-dark rounded d-flex flex-column align-items-center justify-content-center">
+       <div  className="container mt-5 py-3 px-5  d-flex flex-column align-items-center justify-content-center">
          <h1>
           END OF THE GAME 
         </h1>
@@ -134,7 +134,7 @@ const TriviaRequest = ({url}) => {
       )}
     </div>
   ) : (
-    <div> Some patience please </div>
+    <p className="display-5 "> Some patience please </p>
   );
 };
 

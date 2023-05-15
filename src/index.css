@@ -124,6 +124,22 @@ body{
   margin: 20px;
 }
 
+.register-container {
+  display: block;
+  margin: 3rem;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 0.5rem;
+}
+
+.register-input, .register-label {
+  width: 100%;
+}
+
 .register-heading {
   font-size: 40px;
   color: black;

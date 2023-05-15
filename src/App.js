@@ -4,9 +4,9 @@ import Register from "./components/Register";
 import Login from "./components/login";
 import Home from "./components/Home";
 import PrivateRoute from "./components/PrivateRoute";
-
+import NavBar from "./components/navBar";
 import Questions from "./components/Questions";
-
+import Footer from "./components/footer";
 import MainPage from "./pages/MainPage";
 
 function App() {
@@ -14,8 +14,11 @@ function App() {
     
 
 
-
-      <Routes>
+  <div> <NavBar/>
+       
+       <Routes>
+        
+      
         {/* <Route path="/" element={<Home />} /> 
         <Route path="/Register" element={<Register />} />
         <Route path="/Login" element={<Login />} />
@@ -66,8 +69,10 @@ function App() {
               ></Route>
             </>
       </Routes>
+      
+  <Footer/></div>
 
-   
+  
   );
 }
 

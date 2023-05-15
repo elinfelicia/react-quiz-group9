@@ -1,11 +1,7 @@
-// TO DO
 
 
-// create loop to continue getting questions
-// check that score works correctly
 
-
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import { useNavigate  } from "react-router-dom";
 
 
@@ -19,52 +15,9 @@ const QuestionsAnswersTemplate = ({
 
   
 
-
-
-  // const [showAnswers, setShowAnswers] = useState(false);
-  //   const [score, setScore] = useState (0)
-
-   
-
-  //   const [disabled, setDisabled] = useState(false);
     const ref = useRef(null);
     
    
-    // const[toggle,setToggle] = useState(true)
-   
-    
-
-    // useEffect(() => {
-    //   if(disabled) {
-    //     setDisabled(!disabled)
-    //     setToggle(false)
-        
-    //   }
-
-    // }, [question])
-
-
-    //    const clickHandle = (answer) => {
-    //      setDisabled(true);
-    //      setToggle(true)
-    //     // console.log(correct_answer);
-    //       //  console.log(answer);
-    //      //  buttonRef.current.disabled = true;
-    //     if (answer === correct_answer) {
-    //   //       console.log("yay");
-    //         setScore(score + 1);
-    //        setShowAnswers(true); 
-           
-          
-         
-    //    } else {
-    //   //      console.log("nay");
-    //     setShowAnswers(true);
-         
-    //      }
-        
-    //   //  console.log(score)
-    //   };
 
 
       

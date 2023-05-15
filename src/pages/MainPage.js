@@ -1,7 +1,6 @@
 import React from 'react'
-import Questions from '../components/Questions'
-import QuestionsAnswersTemplate from '../components/QuestionsAnswersTemplate'
-import { Routes, Route, Link , useNavigate} from 'react-router-dom'
+
+import { Link} from 'react-router-dom'
 
 
 const MainPage = () => {

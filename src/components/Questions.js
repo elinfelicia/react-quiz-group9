@@ -61,10 +61,7 @@ const TriviaRequest = ({url}) => {
     setShowAnswers(false);
     setDisabled(!disabled)
    
-    // if (question.answer === question.correct_answer) {
-    //   //       console.log("yay");
-    //         setScore(score + 1);
-      //  }
+
   };
 
   useEffect(() => {
@@ -80,9 +77,7 @@ const TriviaRequest = ({url}) => {
      const clickHandle = (answer, correct_answer) => {
        setDisabled(true);
        setToggle(true)
-      // console.log(correct_answer);
-        //  console.log(answer);
-       //  buttonRef.current.disabled = true;
+
       if (answer === correct_answer) {
     //       console.log("yay");
           setScore(score + 1);

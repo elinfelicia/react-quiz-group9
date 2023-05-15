@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+
 const   NavBar= ()=>{
     return  (
 <body>
@@ -10,7 +11,7 @@ const   NavBar= ()=>{
             <div className="sidebar">
                 <header>Quiz Game</header>
         <ul>
-        <li><Link className='links' to = "/login"><i class="fa fa-sign-in fa-x">  Sign in </i>  </Link>
+        <li><Link className='links' to = "/Login"><i class="fa fa-sign-in fa-x">  Sign in </i>  </Link>
           </li>
             <li><Link className='links' to = "/Register"><i class="fa fa-user-plus">  Sign up </i>  </Link>
           </li>

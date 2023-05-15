@@ -98,15 +98,7 @@ label #cancel{
  
  
 }
-body{
-    background: url(/public/brain.png) no-repeat;
-   background-position: center;
-   background-size: contain;
-   background-color:#CB7969;
-   height: 90vh;
 
-   
-}
 #check:checked ~body{
     margin-left: 250px;
 }

@@ -1,14 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 
 import Axios from "axios";
-// import QuestionsAnswersTemplate from './QuestionsAnswersTemplate';
+
 
 import QuestionsAnswersTemplate from "./QuestionsAnswersTemplate";
+import { Link } from 'react-router-dom';
 
 
 
 
-const TriviaRequest = () => {
+const TriviaRequest = ({url}) => {
   
   const [question, setQuestion] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -31,7 +32,7 @@ const TriviaRequest = () => {
 
   // need to fetch 12 questions indstead of 10 bc i lost two indexes somewhere in the code
 
-  const url = "https://opentdb.com/api.php?amount=12&category=23&type=multiple";
+  // const url = "https://opentdb.com/api.php?amount=12&category=23&type=multiple";
 
   useEffect(() => {
     Axios.get(url)
@@ -116,8 +117,8 @@ const TriviaRequest = () => {
         <h5 className="mt-2 display-2">{(score >= 6) ? <p className="text-success">You won!</p> : <p  className="text-danger">You lost!</p>}</h5> 
         
         </div>
-        <button className="mt-4 btn btn-lg btn-outline-warning" to="/">
-        MAIN MENU
+        <button className="mt-4 btn btn-lg btn-outline-warning"><Link className='text-decoration-none text-body' to='/'>
+        MAIN MENU</Link>
       </button> </div>
       ) : (
         <QuestionsAnswersTemplate

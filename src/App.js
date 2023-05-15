@@ -1,5 +1,6 @@
 import axios from "axios";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Register from "./components/Register";
 import Login from "./components/login";
 import Home from "./components/Home";
 import PrivateRoute from "./components/PrivateRoute";
@@ -15,8 +16,8 @@ function App() {
 
 
       <Routes>
-        
         {/* <Route path="/" element={<Home />} /> 
+        <Route path="/Register" element={<Register />} />
         <Route path="/Login" element={<Login />} />
         <Route
           path="/user"

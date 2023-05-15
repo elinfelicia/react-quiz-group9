@@ -6,7 +6,7 @@
 
 
 import React, { useEffect, useState, useRef } from "react";
-
+import { useNavigate  } from "react-router-dom";
 
 
 
@@ -69,13 +69,18 @@ const QuestionsAnswersTemplate = ({
 
       
       
-  
-
+    const navigate = useNavigate();
+    const navigateHome = () => {
+      navigate('/');
+    };
   
 
   return (
+
     <div className="h-100 w-75 align-items-center justify-content-center">
-    
+            <div className="d-flex flex-row justify-content-center">
+       <button className="btn btn-dark btn-lg mt-5" onClick={navigateHome}>MAIN MENU</button> 
+       </div>
       <div className="d-flex flex-column align-items-center container mt-5">
        
         <h1>SCORE</h1>

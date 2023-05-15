@@ -30,27 +30,30 @@ const Register = () => {
   return (
     <div className="register-container">
       <form className="register-form">
-        <h1>Register User</h1>
-        <label>
+        <h1 className="register-heading">Register User</h1>
+        <label className="register-label">
           <input
             type="text"
             placeholder="Name"
+            className="register-input"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
-        <label>
+        <label className="register-label">
           <input
             type="text"
             placeholder="Email"
+            className="register-input"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        <label>
+        <label className="register-label">
           <input
             type="text"
             placeholder="Password"
+            className="register-input"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />

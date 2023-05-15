@@ -123,3 +123,9 @@ body{
   color:#2e2a2a;
   margin: 20px;
 }
+
+.register-heading {
+  font-size: 40px;
+  color: black;
+  z-index: 99999999;
+}

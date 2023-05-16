@@ -14,19 +14,20 @@ function App() {
     
 
 
-  <div> <NavBar/>
+  <div> 
+    {/* <NavBar/> */}
        
        <Routes>
         
       
         {/* <Route path="/" element={<Home />} /> 
-        <Route path="/Register" element={<Register />} />
-        <Route path="/Login" element={<Login />} />
         <Route
-          path="/user"
-          element={ */}
+        path="/user"
+      element={ */}
             <>
-              <Route path="/" element={<MainPage />}></Route>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/Register" element={<Register />} />
+              <Route path="/Login" element={<Login />} />
               <Route
                 path="/history"
                 element={

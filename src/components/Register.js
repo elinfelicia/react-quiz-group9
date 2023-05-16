@@ -15,14 +15,14 @@ const Register = () => {
 
   const handleSubmit = async () => {
     const user = await axios
-      .get("/users")
+      .get("http://localhost:6001/users")
       .then((res) => checkEmail(res.data, email));
     
     if (user) {
       alert("User already exists!")
     } else {
       const user = { username, email, password };
-      axios.post("/users", user).then(alert("User created!"));
+      axios.post("http://localhost:6001/users", user).then(alert("User created!"));
     }
 
   }
@@ -51,7 +51,7 @@ const Register = () => {
         </label>
         <label className="register-label">
           <input
-            type="text"
+            type="password"
             placeholder="Password"
             className="register-input"
             value={password}

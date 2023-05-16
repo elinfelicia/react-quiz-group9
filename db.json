@@ -1,6 +1,10 @@
 {
   "users": [
-    
+    {
+      "name": "testname",
+      "email": "test@email.com",
+      "password": "testpassword"
+    }
   ],
   "posts": [
     {

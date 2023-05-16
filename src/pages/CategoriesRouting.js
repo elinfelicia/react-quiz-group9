@@ -8,9 +8,9 @@ const CategoriesRouting = () => {
   return (
     <>
     <Routes>
-    <Route path="/main" element={<MainPage />} />
+    <Route path="/" element={<MainPage />} />
               <Route
-                path="/main/history"
+                path="/history"
                 element={
                   <Questions
                     url={
@@ -20,7 +20,7 @@ const CategoriesRouting = () => {
                 }
               ></Route>
               <Route
-                path="/main/mythology"
+                path="/mythology"
                 element={
                   <Questions
                     url={
@@ -30,7 +30,7 @@ const CategoriesRouting = () => {
                 }
               ></Route>
               <Route
-                path="/main/computer-science"
+                path="/computer-science"
                 element={
                   <Questions
                     url={
@@ -40,7 +40,7 @@ const CategoriesRouting = () => {
                 }
               ></Route>
               <Route
-                path="/main/literature"
+                path="/literature"
                 element={
                   <Questions
                     url={

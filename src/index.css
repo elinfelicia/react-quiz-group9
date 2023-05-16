@@ -99,7 +99,7 @@ label #cancel{
  
 }
 body{
-    background: url(/public/brain.png) no-repeat;
+    /* background: url(/public/brain.png) no-repeat; */
    background-position: center;
    background-size: contain;
    background-color:#CB7969;
@@ -143,5 +143,4 @@ body{
 .register-heading {
   font-size: 40px;
   color: black;
-  z-index: 99999999;
 }

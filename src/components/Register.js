@@ -12,7 +12,9 @@ const Register = () => {
     if (user) return user;
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
     const user = await axios
       .get("http://localhost:6001/users")
       .then((res) => checkUser(res.data, username));

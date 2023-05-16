@@ -1,4 +1,26 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "username": "testusername",
+      "password": "testpassword"
+    },
+    {
+      "username": "elin1",
+      "password": "123456789",
+      "id": 2
+    },
+    {
+      "username": "elinelin",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "username": "hejhej",
+      "password": "hejkhej",
+      "id": 4
+    }
+  ],
   "posts": [
     {
       "id": 1,

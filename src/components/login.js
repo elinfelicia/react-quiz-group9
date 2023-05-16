@@ -34,8 +34,11 @@ const handleSubmit = async (e) => { //(e) stands for event object here.
 
     if (user) {
         navigate("/") //must set up navigate = useNavigate first for this to work!!!
+        localStorage.setItem("user", JSON.stringify(user.id))
     }
-}
+    setUsername("");
+    setPassword("");
+};
 
     return (
         <div className="container">

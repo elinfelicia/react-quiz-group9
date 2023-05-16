@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import {useState} from "react";
-import axios from "axios"
+import axios from "axios";
+import Button from "./Button";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -45,9 +46,9 @@ const handleSubmit = async (e) => { //(e) stands for event object here.
                 <label>
                     <input type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </label>
-                <button className="btn" type="submit">
-                    <p>Log in!</p>
-                </button>
+                <Button className="btn login-btn" type="submit">
+                    Log in!
+                </Button>
             </form>
         </div>
     );

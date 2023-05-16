@@ -10,5 +10,15 @@
     "not ios_saf <= 14.8",
     "not opera <= 95",
     "not safari <= 14.1"
-  ]
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "user-select"
+        ]
+      }
+    ]
+  }
 }

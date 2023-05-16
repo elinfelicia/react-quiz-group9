@@ -24,7 +24,7 @@ const QuestionsAnswersTemplate = ({
       
     const navigate = useNavigate();
     const navigateHome = () => {
-      navigate('/');
+      navigate('/quiz/main');
     };
   
 

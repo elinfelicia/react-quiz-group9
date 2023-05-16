@@ -8,6 +8,7 @@ import NavBar from "./components/navBar";
 import Questions from "./components/Questions";
 import Footer from "./components/footer";
 import MainPage from "./pages/MainPage";
+import CategoriesRouting from "./pages/CategoriesRouting";
 
 function App() {
   return (
@@ -28,46 +29,8 @@ function App() {
               <Route path="/" element={<Home />}></Route>
               <Route path="/Register" element={<Register />} />
               <Route path="/Login" element={<Login />} />
-              <Route
-                path="/history"
-                element={
-                  <Questions
-                    url={
-                      "https://opentdb.com/api.php?amount=12&category=23&type=multiple"
-                    }
-                  />
-                }
-              ></Route>
-              <Route
-                path="/mythology"
-                element={
-                  <Questions
-                    url={
-                      "https://opentdb.com/api.php?amount=12&category=20&type=multiple"
-                    }
-                  />
-                }
-              ></Route>
-              <Route
-                path="/computer-science"
-                element={
-                  <Questions
-                    url={
-                      "https://opentdb.com/api.php?amount=12&category=18&type=multiple"
-                    }
-                  />
-                }
-              ></Route>
-              <Route
-                path="/literature"
-                element={
-                  <Questions
-                    url={
-                      "https://opentdb.com/api.php?amount=12&category=10&type=multiple"
-                    }
-                  />
-                }
-              ></Route>
+              <Route path="/quiz/*" element={<CategoriesRouting/>} />
+            
             </>
       </Routes>
       

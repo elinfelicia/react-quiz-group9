@@ -26,10 +26,10 @@ function App() {
         path="/user"
       element={ */}
             <>
-              <Route path="/" element={<MainPage />}></Route>
+              {/* <Route path="/" element={<MainPage />}></Route>  */}
               <Route path="/Register" element={<Register />} />
               <Route path="/Login" element={<Login />} />
-              <Route path="/quiz/*" element={<CategoriesRouting/>} />
+              <Route path="/quiz/*" element={<CategoriesRouting/>} /> 
             
             </>
       </Routes>

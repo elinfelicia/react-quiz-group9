@@ -6,7 +6,7 @@ import Axios from "axios";
 import QuestionsAnswersTemplate from "./QuestionsAnswersTemplate";
 import { Link } from 'react-router-dom';
 
-import Logout from "./LogoutBtn";
+
 
 
 const TriviaRequest = ({url}) => {
@@ -112,12 +112,9 @@ const TriviaRequest = ({url}) => {
         <h5 className="mt-2 display-2">{(score >= 6) ? <p className="text-success">You won!</p> : <p  className="text-danger">You lost!</p>}</h5> 
         
         </div>
-        <button className="mt-4 btn btn-lg btn-outline-warning">
-  <Link className='text-decoration-none text-body' to='/'>
-    MAIN MENU
-  </Link>
-</button>
-<Logout /> {/* Add the Logout component */} </div>
+        <button className="mt-4 btn btn-lg btn-outline-warning"><Link className='text-decoration-none text-body' to='/'>
+        MAIN MENU</Link>
+      </button> </div>
       ) : (
         <QuestionsAnswersTemplate
           data={question[currentIndex]}

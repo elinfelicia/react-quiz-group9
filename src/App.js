@@ -8,7 +8,7 @@ import NavBar from "./components/navBar";
 import Questions from "./components/Questions";
 import Footer from "./components/footer";
 import MainPage from "./pages/MainPage";
-import CategoriesRouting from "./pages/CategoriesRouting";
+import TestPR from "./components/TestPR";
 
 function App() {
   return (
@@ -29,8 +29,51 @@ function App() {
               <Route path="/" element={<MainPage />}></Route>
               <Route path="/Register" element={<Register />} />
               <Route path="/Login" element={<Login />} />
-              <Route path="/quiz/*" element={<CategoriesRouting/>} />
-            
+              <Route path="/TestPR" element={
+                <PrivateRoute>
+                  <TestPR />
+                </PrivateRoute>
+                } />
+              <Route
+                path="/history"
+                element={
+                  <Questions
+                    url={
+                      "https://opentdb.com/api.php?amount=12&category=23&type=multiple"
+                    }
+                  />
+                }
+              ></Route>
+              <Route
+                path="/mythology"
+                element={
+                  <Questions
+                    url={
+                      "https://opentdb.com/api.php?amount=12&category=20&type=multiple"
+                    }
+                  />
+                }
+              ></Route>
+              <Route
+                path="/computer-science"
+                element={
+                  <Questions
+                    url={
+                      "https://opentdb.com/api.php?amount=12&category=18&type=multiple"
+                    }
+                  />
+                }
+              ></Route>
+              <Route
+                path="/literature"
+                element={
+                  <Questions
+                    url={
+                      "https://opentdb.com/api.php?amount=12&category=10&type=multiple"
+                    }
+                  />
+                }
+              ></Route>
             </>
       </Routes>
       

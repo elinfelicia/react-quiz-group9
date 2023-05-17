@@ -19,6 +19,11 @@
       "username": "hejhej",
       "password": "hejkhej",
       "id": 4
+    },
+    {
+      "username": "polly",
+      "password": "12345",
+      "id": 5
     }
   ],
   "posts": [

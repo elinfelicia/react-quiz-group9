@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import {useState} from "react";
-import axios from "axios"
+import axios from "axios";
+import Button from "./Button";
+import Logout from "./LogoutBtn";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -23,18 +25,21 @@ const handleSubmit = async (e) => { //(e) stands for event object here.
     } // if the player leaves either or both fields empty, this error message will show
 
     const user = await axios // keyword await is used to make sure the server is checked for users before continuing
-    .get("/users") //access the users in the database
-    .then((res) => checkUser.res.data, username, password) //had () around res.....ord, but got error. check this out.
+    .get("http://localhost:6001/users") //access the users in the database
+    .then((res) => checkUser(res.data, username, password)) //had () around res.....ord, but got error. check this out.
     // after acessing the users, it then checks if the user and password combo exists 
     .catch((error) => { 
         console.log(error); 
         //and if there is an error (if the user or password is incorrect) the error will be logged to the console
     })
 
-    if (user.username === username && user.password === password) {
-        navigate("/") //must set up navigate = useNavigate first fro this to work!!!
+    if (user) {
+        navigate("/") //must set up navigate = useNavigate first for this to work!!!
+        localStorage.setItem("user", JSON.stringify(user.id))
     }
-}
+    setUsername("");
+    setPassword("");
+};
 
     return (
         <div className="container">
@@ -45,9 +50,9 @@ const handleSubmit = async (e) => { //(e) stands for event object here.
                 <label>
                     <input type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </label>
-                <button className="btn" type="submit">
-                    <p>Log in!</p>
-                </button>
+                <Button className="btn" type="submit" onClick={handleSubmit}>
+                    Log in!
+                </Button>
             </form>
         </div>
     );

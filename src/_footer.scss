@@ -11,9 +11,8 @@
 .footer__contact {
   display: flex;
   justify-content:right;
-
-
 }
+
 .footer__contact__info {
   font-family: "Quicksand", sans-serif;
   font-size: 15px;
@@ -35,4 +34,8 @@
 .btn-log-out:hover {
   transform: scale(1.1);
   background-color: rgb(255, 193, 9);
+}
+
+.margin-bottom {
+  margin-bottom: 7rem;
 }

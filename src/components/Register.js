@@ -29,30 +29,27 @@ const Register = () => {
   }
 
   return (
-    <div className="register-container">
-      <form className="register-form">
-        <h1 className="register-heading">Register User</h1>
-        <label className="register-label">
+    <div className="log-container">
+      <form className="form-container">
+        <label className="form-label">
           <input
             type="text"
-            placeholder="Username"
-            className="register-input"
+            placeholder="Pick new username"
+            className="form-input"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
-        <label className="register-label">
+        <label className="form-label">
           <input
             type="password"
-            placeholder="Password"
-            className="register-input"
+            placeholder="Pick new password"
+            className="form-input"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <button className="register-btn" type="submit" onClick={handleSubmit}>
-          <p>Register</p>
-        </button>
+        <button className="log-btn" type="submit" onClick={handleSubmit}>Register</button>
       </form>
     </div>
   );

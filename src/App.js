@@ -28,7 +28,11 @@ function App() {
         path="/user"
       element={ */}
             <>
-            <Route path="*" element={<CategoriesRouting/>} />
+            <Route path="*" element={
+              <PrivateRoute>
+                <CategoriesRouting/>
+              </PrivateRoute>
+              } />
               {/* <Route path="/" element={<MainPage />}></Route>   */}
               <Route path="/Register" element={<Register />} />
               <Route path="/Login" element={<Login />} />

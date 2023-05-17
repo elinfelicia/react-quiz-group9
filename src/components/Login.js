@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import {useState} from "react";
 import axios from "axios";
-import Button from "./Button";
 import Logout from "./LogoutBtn";
 
 const Login = () => {
@@ -42,17 +41,17 @@ const handleSubmit = async (e) => { //(e) stands for event object here.
 };
 
     return (
-        <div className="container">
+        <div className="log-container">
             <form className="form-container">
-                <label>
-                    <input type="username" placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)} />                   
+                <label className="form-label">
+                    <input className="form-input" type="username" placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)} />                   
                 </label>
-                <label>
-                    <input type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <label className="form-label">
+                    <input className="form-input" type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </label>
-                <Button className="btn" type="submit" onClick={handleSubmit}>
+                <button className="log-btn" type="submit" onClick={handleSubmit}>
                     Log in!
-                </Button>
+                </button>
             </form>
         </div>
     );

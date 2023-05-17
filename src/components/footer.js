@@ -14,7 +14,7 @@ const   Footer= ()=>{
         <p className="footer__contact__info">Telephone number: +4642-19 38 00</p>
         <p className="footer__contact__info">Address:Sweden Örbyvägen 10, 257 30 Rydebäck</p>
     </div>
-    <Logout /> {/* Add the Logout component */} 
+    <Logout /> {/* Add the Logout component */}
 </div>
 
 );

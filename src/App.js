@@ -9,6 +9,8 @@ import Questions from "./components/Questions";
 import Footer from "./components/footer";
 import MainPage from "./pages/MainPage";
 import CategoriesRouting from "./pages/CategoriesRouting";
+import TestPR from "./components/TestPR";
+
 
 function App() {
   return (

@@ -54,7 +54,6 @@ const handleSubmit = async (e) => { //(e) stands for event object here.
                     Log in!
                 </Button>
             </form>
-            <Logout/>
         </div>
     );
     // the onChange listens for a change in the input field (either usename or password) 

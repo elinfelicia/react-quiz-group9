@@ -11,6 +11,7 @@ import MainPage from "./pages/MainPage";
 import CategoriesRouting from "./pages/CategoriesRouting";
 import TestPR from "./components/TestPR";
 
+
 function App() {
   return (
     
@@ -35,7 +36,11 @@ function App() {
                   <TestPR />
                 </PrivateRoute>
                 } />
-              <Route path="/quiz/*" element={<CategoriesRouting/>} /> 
+              <Route path="/quiz/*" element={
+                <PrivateRoute>
+                  <CategoriesRouting/>
+                </PrivateRoute>
+                } /> 
             
             </>
       </Routes>

@@ -50,7 +50,7 @@ const QuestionsAnswersTemplate = ({
           {/*dangerouslySetInnerHTML was added for correct rendering of text*/}
           
           <h2
-            className="text-center"
+            className="text-center h4"
             dangerouslySetInnerHTML={{ __html: question }}
             key={question[currentIndex]}
           />

@@ -7,7 +7,7 @@ const MainPage = () => {
 
   return (
     
-    <div className='d-flex flex-row align-items-center justify-content-center h-100 mt-5 pt-5'>
+    <div className='d-flex flex-row align-items-center justify-content-center h-100 mt-3 pt-5 background-colors'>
     <div className='d-grid gap-2 col-6 mx-5 my-5'>
 
     <button className='btn btn-warning'><Link className='text-decoration-none text-body display-3' to="history">History</Link></button>

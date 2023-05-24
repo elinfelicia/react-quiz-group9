@@ -32,10 +32,10 @@ const QuestionsAnswersTemplate = ({
 
     <div className="h-100 w-75 align-items-center justify-content-center">
             <div className="d-flex flex-row justify-content-center">
-       <button className="btn btn-dark btn-lg mt-5 mb-3" onClick={navigateHome}>MAIN MENU</button> 
+       <button className="btn btn-dark btn-lg mt-3 mb-3" onClick={navigateHome}>MAIN MENU</button> 
        </div>
            
-      <div className="d-flex flex-column align-items-center container mt-5">
+      <div className="d-flex flex-column align-items-center container mt-2">
        
         <h1>SCORE</h1>
       
@@ -50,7 +50,7 @@ const QuestionsAnswersTemplate = ({
           {/*dangerouslySetInnerHTML was added for correct rendering of text*/}
           
           <h2
-            className="text-center"
+            className="text-center h4"
             dangerouslySetInnerHTML={{ __html: question }}
             key={question[currentIndex]}
           />

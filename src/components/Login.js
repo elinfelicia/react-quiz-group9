@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import {useState} from "react";
 import axios from "axios";
-import Logout from "./LogoutBtn";
 
 const Login = () => {
     const [username, setUsername] = useState("");
